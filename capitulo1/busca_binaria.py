@@ -42,21 +42,20 @@ class BuscaBinaria:
             meio = (alto + baixo) // 2
             chute = lista[meio]
 
-            # If element is present at the meiodle itself
+            # Se o elemento estiver no meio e for igual ao item
             if chute == item:
                 return meio
 
-                # If element is smaller than meio, then it can only
-            # be present in left subarray
+                # Se o elemento for menor que o meio, ele so pode estar presente no array a esquerda
             elif chute > item:
                 return self.busca_recursiva(lista, baixo, meio - 1, item)
 
-                # Else the element can only be present in right subarray
+                # Else ele so pode estar presente no array a direita
             else:
                 return self.busca_recursiva(lista, meio + 1, alto, item)
 
         else:
-            # Element is not present in the array
+            # Elemento nao esta no array...
             return None
 
     """
@@ -74,5 +73,5 @@ if __name__ == "__main__":
     mylist2 = [i + 1 for i in range(128)]
 
     print(bs.busca_interativa(mylist2, 52))  # => 1
-    # 'None' means nil in Python. We use to indicate that the item wasn't found.
+    # 'None' significa nulo em Python no caso ele vai retornar vazio nesse caso.
     print(bs.busca_interativa(my_list, -1))  # => None
